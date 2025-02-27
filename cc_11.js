@@ -67,3 +67,17 @@ class Library {
         return this.borrowers.find(borrower => borrower.borrowerId === borrowerId);
     }
 }
+
+   // Task 4: Implementing Book Borrowing
+   lendBook(borrowerId, isbn) {
+    let book = this.findBook(isbn);
+    let borrower = this.findBorrower(borrowerId);
+
+    // Check if book exists, borrower exists, and book is available
+    if (book && borrower && book.copies > 0) {
+        book.updateCopies(-1);        // Reduce book copies by 1
+        borrower.borrowBook(book.title); // Add book to borrower's borrowed list
+    } else {
+        console.log("Book not available or borrower not found.");
+    }
+}
