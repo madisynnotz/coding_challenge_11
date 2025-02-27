@@ -81,3 +81,18 @@ class Library {
         console.log("Book not available or borrower not found.");
     }
 }
+
+    // Task 5: Implementing Book Returns
+    returnBook(borrowerId, isbn) {
+        let book = this.findBook(isbn);
+        let borrower = this.findBorrower(borrowerId);
+
+        // Check if book and borrower exist, and borrower has borrowed the book
+        if (book && borrower && borrower.borrowedBooks.includes(book.title)) {
+            book.updateCopies(1);         // Increase book copies by 1
+            borrower.returnBook(book.title); // Remove book from borrower's borrowed list
+        } else {
+            console.log("Invalid return request.");
+        }
+    }
+}
