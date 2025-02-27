@@ -15,3 +15,22 @@ class Book {  // Constructor initializes book properties
         this.copies += quantity;
     }
 }
+
+// Task 2: Creating a Borrower Class
+class Borrower {
+    // Constructor initializes borrower properties
+    constructor(name, borrowerId) {
+        this.name = name;                 
+        this.borrowerId = borrowerId;     
+        this.borrowedBooks = [];         
+    }
+    // Method to add a book title to the borrowed books list
+    borrowBook(book) {
+        this.borrowedBooks.push(book);
+    }
+
+    // Method to remove a book title from the borrowed books list
+    returnBook(book) {
+        this.borrowedBooks = this.borrowedBooks.filter(title => title !== book);
+    }
+}
