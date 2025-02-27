@@ -34,3 +34,36 @@ class Borrower {
         this.borrowedBooks = this.borrowedBooks.filter(title => title !== book);
     }
 }
+
+// Task 3: Creating a Library Class
+class Library {
+    constructor() {
+        this.books = [];      // Array to store books in the library
+        this.borrowers = [];  // Array to store borrowers
+    }
+
+    // Method to add a book to the library
+    addBook(book) {
+        this.books.push(book);
+    }
+
+    // Method to list all books in the library
+    listBooks() {
+        this.books.forEach(book => console.log(book.getDetails()));
+    }
+
+    // Method to add a borrower to the library system
+    addBorrower(borrower) {
+        this.borrowers.push(borrower);
+    }
+
+    // Method to find a book by its ISBN
+    findBook(isbn) {
+        return this.books.find(book => book.isbn === isbn);
+    }
+
+    // Method to find a borrower by their ID
+    findBorrower(borrowerId) {
+        return this.borrowers.find(borrower => borrower.borrowerId === borrowerId);
+    }
+}
